@@ -1,0 +1,52 @@
+
+
+ <form [formGroup]="todoForm">
+    
+  <div>
+    
+  <md-input-container>
+   
+    <input style="font-size:25px" [formControl]="todoForm.controls['userData']"  type="text" mdInput placeholder="please enter todo" [(ngModel)]="userTodo">
+  
+  </md-input-container>
+</div>
+
+  <div> 
+
+  <button md-raised-button color="primary" *ngIf="isAddButton" [disabled]="!todoForm.valid" (click)="add(userTodo)">Add</button>
+  <button md-raised-button color="primary"  (click)="update()" *ngIf="isEdit">Update</button>
+  
+  </div>
+
+  </form>
+   
+<ul style="list-style-type: none;display : inline-block;">
+  <li style="font-size:25px" *ngFor="let a of todoList, let i = index">{{a}}
+   
+   <div style="display : inline-block;margin: 5px;">
+    
+    <button  md-icon-button color="primary" (click)="edit(a,i)" ><i class="material-icons">edit</i></button>
+    <button md-icon-button color="primary" (click)="deleteTodo(i)"><i class="material-icons">delete</i></button>
+    
+    </div>
+  
+   
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
